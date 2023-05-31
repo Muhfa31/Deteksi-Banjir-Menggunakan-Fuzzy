@@ -1,0 +1,83 @@
+[System]
+Name='banjir'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=36
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='curah_hujan'
+Range=[0 100]
+NumMFs=3
+MF1='gerimis':'trimf',[0 25 50]
+MF2='sedang':'trimf',[25 50 75]
+MF3='deras':'trimf',[50 75 100]
+
+[Input2]
+Name='lama_hujan'
+Range=[0 100]
+NumMFs=4
+MF1='sebentar':'trimf',[0 15 25]
+MF2='sedang':'trimf',[25 40 50]
+MF3='lama':'trimf',[50 65 75]
+MF4='sangat_lama':'trimf',[75 85 100]
+
+[Input3]
+Name='debit_sungai'
+Range=[0 15]
+NumMFs=3
+MF1='rendah':'trimf',[0 3 5]
+MF2='sedang':'trimf',[5 8 10]
+MF3='tinggi':'trimf',[10 13 15]
+
+[Output1]
+Name='kemungkinan_banjir'
+Range=[0 1]
+NumMFs=3
+MF1='tidak_banjir':'trimf',[0 0.25 0.5]
+MF2='banjir_sedang':'trimf',[0.4 0.6 0.8]
+MF3='banjir_besar':'trimf',[0.6 0.8 1]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 1 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 1 (1) : 1
+1 2 3, 2 (1) : 1
+1 3 1, 1 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 2 (1) : 1
+1 4 1, 2 (1) : 1
+1 4 2, 2 (1) : 1
+1 4 3, 2 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 2 (1) : 1
+2 3 1, 1 (1) : 1
+2 3 2, 2 (1) : 1
+2 3 3, 2 (1) : 1
+2 4 1, 2 (1) : 1
+2 4 2, 2 (1) : 1
+2 4 3, 3 (1) : 1
+3 1 1, 1 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 2 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 3 (1) : 1
+3 2 3, 3 (1) : 1
+3 3 1, 2 (1) : 1
+3 3 2, 3 (1) : 1
+3 3 3, 3 (1) : 1
+3 4 1, 3 (1) : 1
+3 4 2, 3 (1) : 1
+3 4 3, 3 (1) : 1
